@@ -9,9 +9,6 @@ let messageBox = document.getElementById('message-box');
 
 function valPar() {
   bin[bin.length - 1] == 0 ? showMessage(1) : null;
-  /* if (bin[bin.length - 1] == 0) {
-    showMessage(1);
-  } */
 }
 
 function showMessage(val) {
@@ -27,35 +24,4 @@ function showMessage(val) {
 function valBinario() {
   bin = bin.value;
   /[2-9]/.test(bin) ? showMessage(2) : valPar();
-  /* if (/[2-9]/.test(bin)) {
-  } else {
-    valPar();
-  } */
 }
-/* function show(par, base10, base2) {
-  property.style.opacity = 1
-  [nPar].value = value
-}
-
-
-function interfaz () {
-  if(valBinario(bin)) {
-    if(valPar()) {
-      show(1,bin,)
-    } else {
-      show(0,1,1)
-    }
-  } else {
-    showMesagge(1)
-  }
-}
-
-function interfaz () {
-  if(valBinario(bin)) {
-    if(options.esPar) {
-      show(nPar, '> Si')
-    } if(options.base10) {
-      show(nPar, '> Si')
-    }
-  }
-} */
