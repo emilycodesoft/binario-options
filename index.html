@@ -11,15 +11,13 @@
   <main>
     <div class="results">
       <div class="line"></div>
-      <p class="first-result">Es par ---> 101010</p>
-      <p>Base 10 ---> 101010</p>
-      <p>Base 2 ---> 101010</p>
+      <p id="first-result">Es par ---> <span id="nPar"></span></p>
     </div>
     <div class="main-box">
       <h1>Binario</h1>
       <h2>Escribe un numero binario:</h2>
-      <input type="text" placeholder="Ej. 1010101">
-      <button class="btn btn-primary">Execute</button>
+      <input type="text" placeholder="Ej. 1010101" id="bin">
+      <button class="btn btn-primary" onclick="valBinario()">Execute</button>
       <div class="options">
         <div class="option">
           <div class="checkbox"></div>
@@ -53,5 +51,6 @@
       </div>
     </footer>
   </main>
+  <script src="index.js"></script>
 </body>
 </html>

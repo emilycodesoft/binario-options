@@ -1,26 +1,61 @@
-//FUNCION ULTIMO DIGITO
-let ud = (bin) => bin[bin.length - 1];
+// ANALISIS SEMANTICO
 
-//VALIDACION SI BINARIO ES PAR
-let binarioEsPar = (ud) => (ud == 0 ? true : false);
+// VARIABLES
+let bin = document.getElementById('bin');
+let nPar = document.getElementById('nPar');
+let firstResult = document.getElementById('first-result');
+let messageBox = document.getElementById('message-box');
+// FUNCIONES
 
-//VALIDACION QUE TODOS LOS NUMEROS SEAN 1 O 0
-function val(bin) {
-  if (!bin.match('[2-9]')) {
-    return true;
-  }
-  return false;
+function valPar() {
+  bin[bin.length - 1] == 0 ? showMessage(1) : null;
+  /* if (bin[bin.length - 1] == 0) {
+    showMessage(1);
+  } */
 }
 
-//INTERFAZ
-function interfaz(bin) {
-  if (val(bin) && val(bin)) {
-    if (binarioEsPar(ud(bin))) {
-      return `El numero ${bin} es par`;
+function showMessage(val) {
+  if (val) {
+    nPar.innerHTML = '> Sí';
+    firstResult.style.opacity = 1;
+  }
+  if (val == 2) {
+    m;
+  }
+}
+
+function valBinario() {
+  bin = bin.value;
+  /[2-9]/.test(bin) ? showMessage(2) : valPar();
+  /* if (/[2-9]/.test(bin)) {
+  } else {
+    valPar();
+  } */
+}
+/* function show(par, base10, base2) {
+  property.style.opacity = 1
+  [nPar].value = value
+}
+
+
+function interfaz () {
+  if(valBinario(bin)) {
+    if(valPar()) {
+      show(1,bin,)
+    } else {
+      show(0,1,1)
     }
-    return `El numero ${bin} no es par`;
+  } else {
+    showMesagge(1)
   }
-  return `El numero ${bin} no es un binario`;
 }
 
-console.log(interfaz('120200'));
+function interfaz () {
+  if(valBinario(bin)) {
+    if(options.esPar) {
+      show(nPar, '> Si')
+    } if(options.base10) {
+      show(nPar, '> Si')
+    }
+  }
+} */
