@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  margin: 0;
+  background-color: #1f1f1f;
+}
+* {
+  font-family: consolas;
+}
+h1 {
+  font-weight: 900;
+  color: #23b93c;
+  font-size: 45px;
+  font-weight: 500;
+}
+h2 {
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+}
+
+input {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 10%);
+  border: 0;
+  width: 320px;
+  height: 40px;
+  color: #23b93c;
+  font-size: 18px;
+}
+input::placeholder {
+  color: #23b93c;
+  font-size: 18px;
+}
+main {
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* align-content: center; */
+  height: 95vh;
+  margin-top: 20px;
+  margin-left: 65px;
+}
+.btn {
+  border: 0;
+  padding: 10px;
+  font-family: consolas;
+  height: 60px;
+  width: 140px;
+  font-size: 18px;
+}
+.btn-primary {
+  background-color: #0d681c;
+  color: white;
+}
+.checkbox {
+  border: 1px solid #23b93c;
+  width: 13px;
+  height: 13px;
+  margin-right: 10px;
+}
+.option {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  color: white;
+  cursor: pointer;
+}
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-self: flex-start;
+}
+.btn-help {
+  width: 49px;
+  height: 49px;
+  background-color: rgba(255, 255, 255, 7%);
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+footer {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 20px;
+  /* padding-bottom: 10px; */
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+.results {
+  color: #23b93c;
+  justify-self: flex-start;
+  text-align: left;
+}
+.results p {
+  font-size: 18px;
+}
+.line {
+  position: absolute;
+  width: 1px;
+  background-color: #707070;
+  height: 600px;
+  top: 25px;
+  left: 40px;
+}
+.main-box {
+  margin-top: -100px;
+}
