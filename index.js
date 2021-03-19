@@ -23,11 +23,13 @@ function cleanSelectedCheckbox() {
     checkbox.checked = false;
   });
 }
-
+function cleanTotalSpan() {
+  totalSpan.forEach((span) => (span.innerHTML = ''));
+}
 //ESCUCHADORES DE EVENTOS
 btnExecute.addEventListener('click', (event) => {
   let totalSpan = document.querySelectorAll('span[class="result"]');
-  totalSpan.forEach((span) => (span.innerHTML = ''));
+
   if (/[2-9]/.test(bin.value)) {
     cleanProgram();
     showAlert();
