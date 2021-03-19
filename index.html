@@ -11,37 +11,55 @@
   <main>
     <div class="results">
       <div class="line"></div>
-      <p id="first-result">Es par ---> <span id="nPar"></span></p>
+      <p >Binario ---> <span id="result1" class="result"></span></p>
+      <p >N° de digitos ---> <span id="result2" class="result"></span></p>
+      <p >N° de unos ---> <span id="result3" class="result"></span></p>
+      <p >Espacios en binario ---> <span id="result4" class="result"></span></p>
+      <p >Binario es par ---> <span id="result5" class="result"></span></p>
+      <p >Ultimo digito 1 ---> <span id="result6" class="result"></span></p>
+      <p >Primer Digito 1 ---> <span id="result7" class="result"></span></p>
     </div>
     <div class="main-box">
       <h1>Binario</h1>
       <h2>Escribe un numero binario:</h2>
-      <input type="text" placeholder="Ej. 1010101" id="bin">
-      <button class="btn btn-primary" onclick="valBinario()">Execute</button>
+      <input class="bin" type="text" placeholder="Ej. 1010101" id="bin">
+      <button class="btn btn-primary" id="execute">Execute</button>
       <div class="options">
         <div class="option">
-          <div class="checkbox"></div>
-          <p>Numero Par</p>
+          <div class="wrapper">
+            <input id="option2" type="checkbox" name="opcion" value="numDigitos">
+            <label for="option2">N. de digitos</label>
+          </div>
         </div>
         <div class="option">
-          <div class="checkbox"></div>
-          <p>Numero b10</p>
+          <div class="wrapper">
+            <input id="option3" type="checkbox" name="opcion" value="numUnos">
+            <label for="option3">N. de unos</label>
+          </div>
         </div>
         <div class="option">
-          <div class="checkbox"></div>
-          <p>Numero b2</p>
+          <div class="wrapper">
+            <input id="option4" type="checkbox" name="opcion" value="option4">
+            <label for="option4">Binario par</label>
+          </div>
         </div>
         <div class="option">
-          <div class="checkbox"></div>
-          <p>Numero C8</p>
+          <div class="wrapper">
+            <input id="option5" type="checkbox" name="opcion" value="espaciosBinarios">
+            <label for="option5">Espacios en binario</label>
+          </div>
         </div>
         <div class="option">
-          <div class="checkbox"></div>
-          <p>Numero C10</p>
+          <div class="wrapper">
+            <input id="opcion6" type="checkbox" name="opcion" value="primerDigito">
+            <label for="opcion6">Primer digito 1</label>
+          </div>
         </div>
         <div class="option">
-          <div class="checkbox"></div>
-          <p>Numero C12+</p>
+          <div class="wrapper">
+            <input id="opcion7" type="checkbox" name="opcion" value="ultimoDigito">
+            <label for="opcion7">Ultimo digito 1</label>
+          </div>
         </div>
       </div>
     </div>

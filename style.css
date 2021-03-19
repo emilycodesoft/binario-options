@@ -19,7 +19,7 @@ h2 {
   color: white;
 }
 
-input {
+.bin {
   padding: 10px;
   background-color: rgba(255, 255, 255, 10%);
   border: 0;
@@ -28,7 +28,7 @@ input {
   color: #23b93c;
   font-size: 18px;
 }
-input::placeholder {
+.bin::placeholder {
   color: #23b93c;
   font-size: 18px;
 }
@@ -55,7 +55,7 @@ main {
   background-color: #0d681c;
   color: white;
 }
-.checkbox {
+/* .checkbox {
   border: 1px solid #23b93c;
   width: 13px;
   height: 13px;
@@ -63,19 +63,23 @@ main {
 }
 .checkbox:active {
   background-color: rgba(56, 153, 81, 88%);
-}
+} */
 .option {
   display: flex;
   align-items: center;
   /* justify-content: center; */
   color: white;
   cursor: pointer;
+  margin: 15px 0;
 }
 .options {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   align-self: flex-start;
+  grid-gap: 15px;
+  justify-items: center;
+  margin-top: 20px;
 }
 .btn-help {
   width: 49px;
@@ -118,4 +122,56 @@ footer {
 }
 #first-result {
   opacity: 0;
+}
+
+input[type='checkbox']:not(old) + label {
+  cursor: pointer;
+}
+
+input[type='checkbox']:not(old) + label:before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  border: 1px double black;
+  cursor: pointer;
+  vertical-align: top;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.wrapper {
+  position: relative;
+}
+
+input[type='checkbox']:not(old) {
+  /* Opacidad para ocultar el input */
+  opacity: 0;
+
+  /* Position para dejar el input bajo el label
+     (Es importante agregar al contenedor una posición relativa) */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Este es un pequeño reset */
+input[type='checkbox']:not(old) + label::-moz-selection,
+input[type='checkbox']:not(old) + label::selection {
+  color: inherit;
+  background-color: transparent;
+}
+input[type='checkbox']:not(old) + label {
+  cursor: pointer;
+}
+
+input[type='checkbox']:not(old) + label:before {
+  border: 1px solid #23b93c;
+  width: 13px;
+  height: 13px;
+  /* margin-right: 10px; */
+}
+
+input[type='checkbox']:not(old):checked + label:before {
+  /* Estilos del input seleccionado */
+  background-color: rgba(56, 153, 81, 88%);
 }
