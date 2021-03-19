@@ -118,7 +118,7 @@ footer {
   left: 40px;
 }
 .main-box {
-  margin-top: -100px;
+  margin-top: -200px;
 }
 #first-result {
   opacity: 0;
@@ -174,4 +174,14 @@ input[type='checkbox']:not(old) + label:before {
 input[type='checkbox']:not(old):checked + label:before {
   /* Estilos del input seleccionado */
   background-color: rgba(56, 153, 81, 88%);
+}
+.alert {
+  background-color: #9e0c20;
+  color: white;
+  width: 500px;
+  height: 50px;
+  position: absolute;
+  top: 120px;
+  left: 550px;
+  display: none;
 }

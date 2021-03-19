@@ -11,15 +11,18 @@
   <main>
     <div class="results">
       <div class="line"></div>
-      <p >Binario ---> <span id="result1" class="result"></span></p>
-      <p >N° de digitos ---> <span id="result2" class="result"></span></p>
-      <p >N° de unos ---> <span id="result3" class="result"></span></p>
-      <p >Espacios en binario ---> <span id="result4" class="result"></span></p>
-      <p >Binario es par ---> <span id="result5" class="result"></span></p>
-      <p >Ultimo digito 1 ---> <span id="result6" class="result"></span></p>
-      <p >Primer Digito 1 ---> <span id="result7" class="result"></span></p>
+      <p >Binario ---> <span id="showBin" class="result"></span></p>
+      <p >N° de digitos ---> <span id="numDigitos" class="result"></span></p>
+      <p >N° de unos ---> <span id="numUnos" class="result"></span></p>
+      <p >Espacios en binario ---> <span id="espaciosBinarios" class="result"></span></p>
+      <p >Binario es par ---> <span id="numPar" class="result"></span></p>
+      <p >Ultimo digito 1 ---> <span id="ultimoDigito" class="result"></span></p>
+      <p >Primer Digito 1 ---> <span id="primerDigito" class="result"></span></p>
     </div>
     <div class="main-box">
+      <div class="alert" id="alert-box">
+        <p>Error 404! El numero ingresado no es binario</p>
+      </div>
       <h1>Binario</h1>
       <h2>Escribe un numero binario:</h2>
       <input class="bin" type="text" placeholder="Ej. 1010101" id="bin">
@@ -39,7 +42,7 @@
         </div>
         <div class="option">
           <div class="wrapper">
-            <input id="option4" type="checkbox" name="opcion" value="option4">
+            <input id="option4" type="checkbox" name="opcion" value="numPar">
             <label for="option4">Binario par</label>
           </div>
         </div>
@@ -63,6 +66,7 @@
         </div>
       </div>
     </div>
+    
     <footer>
       <div class="btn-help">
         <span>?</span>

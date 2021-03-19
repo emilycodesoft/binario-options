@@ -12,10 +12,7 @@ function getSelectedCheckboxValues() {
   });
   return values;
 }
-function show(i, value) {
-  results[i - 1].style.opacity = 1;
-  results[i - 1].innerHTML = value;
-}
+
 function cleanProgram() {
   bin.value = '';
   cleanSelectedCheckbox();
@@ -26,36 +23,46 @@ function cleanSelectedCheckbox() {
     checkbox.checked = false;
   });
 }
+
 //ESCUCHADORES DE EVENTOS
 btnExecute.addEventListener('click', (event) => {
+  let totalSpan = document.querySelectorAll('span[class="result"]');
+  totalSpan.forEach((span) => (span.innerHTML = ''));
+  if (/[2-9]/.test(bin.value)) {
+    cleanProgram();
+    showAlert();
+  }
   let checkboxsSelected = getSelectedCheckboxValues();
   options.forEach((option, index) => {
-    if (checkboxsSelected.includes(option.name)) {
-      let result = option.fn(bin.value);
-      show(index, result);
+    if (checkboxsSelected.includes(option.name) || option.default === true) {
+      let value = option.fn(bin.value);
+      let span = document.getElementById(option.name);
+      span.style.opacity = 1;
+      span.innerHTML = value;
     }
   });
-
   cleanProgram();
 });
 
+function showAlert() {
+  let alert = document.getElementById('alert-box');
+  alert.style.display = 'inherit';
+  setTimeout(() => {
+    alert.style.display = 'none';
+  }, 5000);
+}
 let options = [
-  {
-    name: 'valBinario',
-    fn: (bin) => {
-      console.log(/[2-9]/.test(bin) ? '> No' : '> Sí');
-    },
-  },
   {
     name: 'showBin',
     fn: (bin) => {
       return bin;
     },
+    default: true,
   },
   {
     name: 'numPar',
     fn: (bin) => {
-      return bin[bin.length - 1] == 1 ? '> Sí' : '> No';
+      return bin[bin.length - 1] == 1 ? ' Sí' : ' No';
     },
   },
   {
