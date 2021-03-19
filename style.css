@@ -118,7 +118,8 @@ footer {
   left: 40px;
 }
 .main-box {
-  margin-top: -200px;
+  margin-top: -300px;
+  margin-right: -50px;
 }
 #first-result {
   opacity: 0;
@@ -184,4 +185,9 @@ input[type='checkbox']:not(old):checked + label:before {
   top: 120px;
   left: 550px;
   display: none;
+}
+.generar-box p {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
 }

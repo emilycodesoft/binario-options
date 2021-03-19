@@ -5,7 +5,7 @@ let btnExecute = document.getElementById('execute');
 
 // FUNCIONES
 function getSelectedCheckboxValues() {
-  let checkboxes = document.querySelectorAll(`input[name="opcion"]:checked`);
+  let checkboxes = document.querySelectorAll(`input[name="opcion"]:checked`); //FIX ---> variable afuera de la funcion no funcion, mirar scope.
   let values = [];
   checkboxes.forEach((checkbox) => {
     values.push(checkbox.value);
@@ -23,16 +23,24 @@ function cleanSelectedCheckbox() {
     checkbox.checked = false;
   });
 }
+
+function random(max, min) {
+  let binRandom = '';
+  for (let i = 0; i <= 8; i++) {
+    binRandom += Math.floor(Math.random() * (max - min)) + min;
+  }
+  return binRandom;
+}
 function cleanTotalSpan() {
+  let totalSpan = document.querySelectorAll('span[class="result"]');
   totalSpan.forEach((span) => (span.innerHTML = ''));
 }
 //ESCUCHADORES DE EVENTOS
 btnExecute.addEventListener('click', (event) => {
-  let totalSpan = document.querySelectorAll('span[class="result"]');
-
   if (/[2-9]/.test(bin.value)) {
     cleanProgram();
     showAlert();
+    cleanTotalSpan();
   }
   let checkboxsSelected = getSelectedCheckboxValues();
   options.forEach((option, index) => {
@@ -51,7 +59,7 @@ function showAlert() {
   alert.style.display = 'inherit';
   setTimeout(() => {
     alert.style.display = 'none';
-  }, 5000);
+  }, 4000);
 }
 let options = [
   {
@@ -97,6 +105,24 @@ let options = [
     name: 'ultimoDigito',
     fn: (bin) => {
       return bin.lastIndexOf('1');
+    },
+  },
+  {
+    name: 'binRandom',
+    fn: (bin) => {
+      return random(2, 0);
+    },
+  },
+  {
+    name: 'binRandomUnos',
+    fn: (bin) => {
+      return random(1, 1);
+    },
+  },
+  {
+    name: 'binRandomCeros',
+    fn: (bin) => {
+      return random(0, 0);
     },
   },
 ];
