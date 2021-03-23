@@ -78,7 +78,7 @@ main {
   grid-template-rows: 1fr 1fr;
   align-self: flex-start;
   grid-gap: 15px;
-  justify-items: center;
+  justify-items: flex-start;
   margin-top: 20px;
 }
 .btn-help {
@@ -190,4 +190,10 @@ input[type='checkbox']:not(old):checked + label:before {
   color: white;
   text-decoration: underline;
   cursor: pointer;
+}
+#pesos {
+  display: flex;
+}
+#pesos div {
+  margin-right: 40px;
 }
