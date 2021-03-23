@@ -125,4 +125,18 @@ let options = [
       return random(0, 0);
     },
   },
+  {
+    name: 'pesos',
+    fn: (bin) => {
+      let pesos = [];
+      for (let i = 1; i <= bin.length; i++) {
+        pesos.push(Math.pow(2, bin.length - i));
+      }
+      console.log(pesos.join(' '));
+      console.log(bin.split('').join(' '));
+    },
+
+    default: true,
+  },
 ];
+// funcion que diga cuantos digitos hay en el input en tiempo real
