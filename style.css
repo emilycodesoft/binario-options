@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
 
 body {
-  margin: 0;
+  margin: 10px;
   background-color: #1f1f1f;
 }
 * {
@@ -10,12 +10,12 @@ body {
 h1 {
   font-weight: 900;
   color: #23b93c;
-  font-size: 45px;
+  font-size: 18px;
   font-weight: 500;
 }
 h2 {
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
   color: white;
 }
 
@@ -24,7 +24,7 @@ h2 {
   background-color: rgba(255, 255, 255, 10%);
   border: 0;
   width: 320px;
-  height: 40px;
+  height: 30px;
   color: #23b93c;
   font-size: 18px;
 }
@@ -47,7 +47,7 @@ main {
   border: 0;
   padding: 10px;
   font-family: consolas;
-  height: 60px;
+  height: 50px;
   width: 140px;
   font-size: 18px;
 }
@@ -74,10 +74,11 @@ main {
 }
 .options {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  grid-auto-flow: column;
   grid-template-rows: 1fr 1fr;
   align-self: flex-start;
-  grid-gap: 15px;
+  /* grid-gap: 15px; */
   justify-items: flex-start;
   margin-top: 20px;
 }
@@ -105,15 +106,20 @@ footer {
   color: #23b93c;
   justify-self: flex-start;
   text-align: left;
+  display: flex;
+  flex-wrap: wrap;
 }
 .results p {
   font-size: 18px;
 }
+.result {
+  margin-right: 40px;
+}
 .line {
   position: absolute;
-  width: 1px;
+  width: 1000px;
   background-color: #707070;
-  height: 600px;
+  height: 1px;
   top: 25px;
   left: 40px;
 }
@@ -191,9 +197,9 @@ input[type='checkbox']:not(old):checked + label:before {
   text-decoration: underline;
   cursor: pointer;
 }
-#pesos {
+#numPesos {
   display: flex;
 }
-#pesos div {
+#numPesos div {
   margin-right: 40px;
 }

@@ -126,18 +126,22 @@ let options = [
     },
   },
   {
-    name: 'pesos',
+    name: 'numPesos',
     fn: (bin) => {
       let pesos = [];
       let binArr = bin.split('');
       for (let i = 1; i <= bin.length; i++) {
         pesos.push([Math.pow(2, bin.length - i), binArr[i - 1]]);
       }
+      let numeroBase2 = 0;
       let pesoProcess = [];
       pesos.forEach((peso) => {
         pesoProcess.push(`<div>${peso[0]} <br> ${peso[1]}</div>`);
+        if (peso[1] == 1) {
+          numeroBase2 += peso[0];
+        }
       });
-      console.log(pesoProcess);
+      console.log(numeroBase2);
       return pesoProcess.join(' ');
     },
 

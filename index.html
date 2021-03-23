@@ -8,9 +8,96 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
+  <header>
+    <h1>Binario</h1>
+  </header>
+  <div>
+      <div class="alert" id="alert-box">
+        <p>Error 404! El numero ingresado no es binario</p>
+      </div>
+      <h2>Escribe un numero binario:</h2>
+      <input class="bin" type="text" placeholder="Ej. 1010101" id="bin">
+      <button class="btn btn-primary" id="execute">Execute</button>
+  </div>
+  <div>
+    <div class="options">
+      <div class="option">
+        <div class="wrapper">
+          <input id="option2" type="checkbox" name="opcion" value="numDigitos">
+          <label for="option2">N. de digitos</label>
+        </div>
+      </div>
+      <div class="option">
+        <div class="wrapper">
+          <input id="option3" type="checkbox" name="opcion" value="numUnos">
+          <label for="option3">N. de unos</label>
+        </div>
+      </div>
+      <div class="option">
+        <div class="wrapper">
+          <input id="option4" type="checkbox" name="opcion" value="numPar">
+          <label for="option4">Binario par</label>
+        </div>
+      </div>
+      <div class="option">
+        <div class="wrapper">
+          <input id="option5" type="checkbox" name="opcion" value="espaciosBinarios">
+          <label for="option5">Espacios en binario</label>
+        </div>
+      </div>
+      <div class="option">
+        <div class="wrapper">
+          <input id="opcion6" type="checkbox" name="opcion" value="primerDigito">
+          <label for="opcion6">Primer digito 1</label>
+        </div>
+      </div>
+      <div class="option">
+        <div class="wrapper">
+          <input id="opcion7" type="checkbox" name="opcion" value="ultimoDigito">
+          <label for="opcion7">Ultimo digito 1</label>
+        </div>
+      </div>
+      <!-- <div class="generar-box">
+        <p>Generar binario</p>
+      </div> -->
+      <!-- <div class="generar-options"> -->
+        <div class="option">
+        <div class="wrapper">
+          <input id="opcion8" type="checkbox" name="opcion" value="binRandom">
+          <label for="opcion8">Binario Random</label>
+        </div>
+      </div>
+      <div class="option">
+        <div class="wrapper">
+          <input id="opcion9" type="checkbox" name="opcion" value="binRandomCeros">
+          <label for="opcion9">Binario random con Ceros</label>
+        </div>
+      </div>
+      <div class="option">
+        <div class="wrapper">
+          <input id="opcion10" type="checkbox" name="opcion" value="binRandomUnos">
+          <label for="opcion10">Binario random con Unos</label>
+        </div>
+      </div>
+      <div class="option">
+        <div class="wrapper">
+          <input id="opcion11" type="checkbox" name="opcion" value="numPesos">
+          <label for="opcion11">Pesos</label>
+        </div>
+      </div>
+      <div class="option">
+        <div class="wrapper">
+          <input id="opcion12" type="checkbox" name="opcion" value="numBase2">
+          <label for="opcion12">Numero base 2</label>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+  </div>
+  <div>
     <div class="results">
-      <div class="line"></div>
+      <!-- <hr> -->
+      <!-- <div class="line"></div> -->
       <p >Binario ---> <span id="showBin" class="result"></span></p>
       <p >N° de digitos ---> <span id="numDigitos" class="result"></span></p>
       <p >N° de unos ---> <span id="numUnos" class="result"></span></p>
@@ -22,93 +109,12 @@
       <p >Binario Random con Ceros ---> <span id="binRandomUnos" class="result"></span></p>
       <p >Binario Random con Unos ---> <span id="binRandomCeros" class="result"></span></p>
       <div>
-        <p>Pesos</p>
-        <span id="pesos" class="result"></span>
-      </div>  
-    </div>
-    <div class="main-box">
-      <div class="alert" id="alert-box">
-        <p>Error 404! El numero ingresado no es binario</p>
+        <p>Pesos --></p>
+        <span id="numPesos" class="result"></span>
       </div>
-      <h1>Binario</h1>
-      <h2>Escribe un numero binario:</h2>
-      <input class="bin" type="text" placeholder="Ej. 1010101" id="bin">
-      <button class="btn btn-primary" id="execute">Execute</button>
-      <div class="options">
-        <div class="option">
-          <div class="wrapper">
-            <input id="option2" type="checkbox" name="opcion" value="numDigitos">
-            <label for="option2">N. de digitos</label>
-          </div>
-        </div>
-        <div class="option">
-          <div class="wrapper">
-            <input id="option3" type="checkbox" name="opcion" value="numUnos">
-            <label for="option3">N. de unos</label>
-          </div>
-        </div>
-        <div class="option">
-          <div class="wrapper">
-            <input id="option4" type="checkbox" name="opcion" value="numPar">
-            <label for="option4">Binario par</label>
-          </div>
-        </div>
-        <div class="option">
-          <div class="wrapper">
-            <input id="option5" type="checkbox" name="opcion" value="espaciosBinarios">
-            <label for="option5">Espacios en binario</label>
-          </div>
-        </div>
-        <div class="option">
-          <div class="wrapper">
-            <input id="opcion6" type="checkbox" name="opcion" value="primerDigito">
-            <label for="opcion6">Primer digito 1</label>
-          </div>
-        </div>
-        <div class="option">
-          <div class="wrapper">
-            <input id="opcion7" type="checkbox" name="opcion" value="ultimoDigito">
-            <label for="opcion7">Ultimo digito 1</label>
-          </div>
-        </div>
-        <div class="option">
-          <div class="wrapper">
-            <input id="opcion7" type="checkbox" name="opcion" value="ultimoDigito">
-            <label for="opcion7">Pesos</label>
-          </div>
-        </div>
-        <div class="option">
-          <div class="wrapper">
-            <input id="opcion7" type="checkbox" name="opcion" value="ultimoDigito">
-            <label for="opcion7">Numero base 2</label>
-          </div>
-        </div>
-        <div class="generar-box">
-          <p>Generar binario</p>
-        </div>
-        <div class="generar-options">
-          <div class="option">
-          <div class="wrapper">
-            <input id="opcion8" type="checkbox" name="opcion" value="binRandom">
-            <label for="opcion8">Binario Random</label>
-          </div>
-        </div>
-        <div class="option">
-          <div class="wrapper">
-            <input id="opcion9" type="checkbox" name="opcion" value="binRandomCeros">
-            <label for="opcion9">Binario random con Ceros</label>
-          </div>
-        </div>
-        <div class="option">
-          <div class="wrapper">
-            <input id="opcion10" type="checkbox" name="opcion" value="binRandomUnos">
-            <label for="opcion10">Binario random con Unos</label>
-          </div>
-        </div>
-        </div>
-      </div>
+      <p>Numero base 2 --></p>
     </div>
-    
+  </div>
     <footer>
       <div class="btn-help">
         <span>?</span>
