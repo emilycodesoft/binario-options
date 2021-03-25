@@ -1,8 +1,55 @@
 // VARIABLES
+// datos que necesito para conectarme al DOM y procesar los datos del usuario
 const bin = document.getElementById('bin');
 let results = document.querySelectorAll(`span[class="result"]`);
 let btnExecute = document.getElementById('execute');
 
+//ESCUCHADORES DE EVENTOS
+btnExecute.addEventListener('click', () => {
+  //primera validacion  --> si el numero es binario
+  valBinario();
+  let checkboxsSelected = getSelectedCheckboxValues();
+  options.forEach((option, index) => {
+    if (checkboxsSelected.includes(option.name) || option.default === true) {
+      showInSpan(option);
+    }
+  });
+  cleanProgram();
+});
+
+function valBinario() {
+  if (/[2-9]/.test(bin.value)) {
+    // regular expression
+    cleanProgram();
+    showAlert();
+    cleanTotalSpan();
+  }
+}
+//------------------------------------FUNCIONES DE LIMPIEZA DEL DOOM---------------------------
+function cleanProgram() {
+  bin.value = '';
+  cleanSelectedCheckbox();
+}
+
+function cleanSelectedCheckbox() {
+  let checkboxes = document.querySelectorAll(`input[name="opcion"]:checked`);
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+}
+function cleanTotalSpan() {
+  let totalSpan = document.querySelectorAll('span[class="result"]');
+  totalSpan.forEach((span) => (span.innerHTML = ''));
+}
+
+function showAlert() {
+  let alert = document.getElementById('alert-box');
+  alert.style.display = 'inherit';
+  setTimeout(() => {
+    alert.style.display = 'none';
+  }, 4000);
+}
+//------------------------------------------------------------------------------------------------------
 // FUNCIONES
 function getSelectedCheckboxValues() {
   let checkboxes = document.querySelectorAll(`input[name="opcion"]:checked`); //FIX ---> variable afuera de la funcion no funcion, mirar scope.
@@ -12,55 +59,17 @@ function getSelectedCheckboxValues() {
   });
   return values;
 }
-
-function cleanProgram() {
-  bin.value = '';
-  cleanSelectedCheckbox();
-}
-function cleanSelectedCheckbox() {
-  let checkboxes = document.querySelectorAll(`input[name="opcion"]:checked`);
-  checkboxes.forEach((checkbox) => {
-    checkbox.checked = false;
-  });
+function showInSpan(option) {
+  let value = option.fn(bin.value);
+  let span = document.getElementById(option.name);
+  span.style.opacity = 1;
+  span.innerHTML = value;
 }
 
-function random(max, min) {
-  let binRandom = '';
-  for (let i = 0; i <= 8; i++) {
-    binRandom += Math.floor(Math.random() * (max - min)) + min;
-  }
-  return binRandom;
-}
-function cleanTotalSpan() {
-  let totalSpan = document.querySelectorAll('span[class="result"]');
-  totalSpan.forEach((span) => (span.innerHTML = ''));
-}
-//ESCUCHADORES DE EVENTOS
-btnExecute.addEventListener('click', (event) => {
-  if (/[2-9]/.test(bin.value)) {
-    cleanProgram();
-    showAlert();
-    cleanTotalSpan();
-  }
-  let checkboxsSelected = getSelectedCheckboxValues();
-  options.forEach((option, index) => {
-    if (checkboxsSelected.includes(option.name) || option.default === true) {
-      let value = option.fn(bin.value);
-      let span = document.getElementById(option.name);
-      span.style.opacity = 1;
-      span.innerHTML = value;
-    }
-  });
-  cleanProgram();
-});
+// VARIABLES GLOBALES
+let pesos = [];
 
-function showAlert() {
-  let alert = document.getElementById('alert-box');
-  alert.style.display = 'inherit';
-  setTimeout(() => {
-    alert.style.display = 'none';
-  }, 4000);
-}
+// puede ser una clase
 let options = [
   {
     name: 'showBin',
@@ -72,7 +81,7 @@ let options = [
   {
     name: 'numPar',
     fn: (bin) => {
-      return bin[bin.length - 1] == 1 ? ' Sí' : ' No';
+      return bin.endsWith('1') ? ' Sí' : ' No';
     },
   },
   {
@@ -84,15 +93,15 @@ let options = [
   {
     name: 'numUnos',
     fn: (bin) => {
-      let nUnos = bin.split('').filter((dig) => dig == 1);
+      let nUnos = bin.split('').filter((dig) => dig == 1); // regular expression: match
       return nUnos.length;
     },
   },
   {
     name: 'espaciosBinarios',
     fn: (bin) => {
-      let nUnos = bin.split('').join('----');
-      return nUnos;
+      let spaces = bin.split('').join('----');
+      return spaces;
     },
   },
   {
@@ -128,24 +137,35 @@ let options = [
   {
     name: 'numPesos',
     fn: (bin) => {
-      let pesos = [];
       let binArr = bin.split('');
       for (let i = 1; i <= bin.length; i++) {
         pesos.push([Math.pow(2, bin.length - i), binArr[i - 1]]);
       }
-      let numeroBase2 = 0;
-      let pesoProcess = [];
+      let pesosHTML = [];
       pesos.forEach((peso) => {
-        pesoProcess.push(`<div>${peso[0]} <br> ${peso[1]}</div>`);
-        if (peso[1] == 1) {
-          numeroBase2 += peso[0];
-        }
+        pesosHTML.push(`<div>${peso[0]} <br> ${peso[1]}</div>`);
       });
-      console.log(numeroBase2);
-      return pesoProcess.join(' ');
+      return pesosHTML.join(' ');
     },
 
     default: true,
   },
+  {
+    name: 'numBase2',
+    fn: (bin) => {
+      let numeroBase2 = 0;
+      pesos.forEach((peso) => (peso[1] == 1 ? (numeroBase2 += peso[0]) : null));
+      return numeroBase2;
+    },
+  },
 ];
+
+function random(max, min) {
+  let binRandom = '';
+  for (let i = 1; i <= 8; i++) {
+    binRandom += Math.floor(Math.random() * (max - min)) + min;
+  }
+  return binRandom;
+}
+
 // funcion que diga cuantos digitos hay en el input en tiempo real
